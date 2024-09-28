@@ -1,0 +1,13 @@
+- name: download kitty
+  get_url:
+    url: https://sw.kovidgoyal.net/kitty/installer.sh
+    dest: /tmp/kitty_installer.sh
+  tags:
+    - kitty
+
+- name: install kitty
+  command: sh /tmp/kitty_installer.sh
+  register: kitty_result
+  failed_when: "'FAILED' in kitty_result.stderr"
+  tags:
+    - kitty

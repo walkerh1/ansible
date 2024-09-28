@@ -1,0 +1,24 @@
+- name: install stow
+  apt:
+    update_cache: true
+    name: stow
+  tags:
+    - dotfiles
+
+- name: clone dotfiles
+  git:
+    repo: 'git@github.com:walkerh1/dotfiles.git'
+    dest: "{{ home }}/dotfiles"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
+  tags:
+    - dotfiles
+
+- name: stow dotfiles
+  command: ./run_stow.sh
+  args:
+    chdir: "{{ home }}/dotfiles"
+  tags:
+    - dotfiles

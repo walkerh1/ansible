@@ -1,0 +1,52 @@
+- name: remove old version of neovim
+  file:
+    path: "{{ home }}/neovim"
+    state: absent
+  tags:
+    - neovim
+
+- name: clone neovim
+  git:
+    repo: "git@github.com:neovim/neovim.git"
+    dest: "{{ home }}/neovim"
+    depth: 1
+    version: stable
+  tags:
+    - neovim
+
+- name: install neovim build deps
+  become: true
+  apt:
+    update_cache: yes
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - ninja-build
+      - gettext
+      - cmake
+      - unzip
+      - curl
+      - build-essential
+  tags:
+    - neovim
+
+- name: build neovim
+  become: true
+  command: make install
+  args:
+    chdir: "{{ home }}/neovim"
+  tags:
+    - neovim
+
+- name: install neovim peer deps
+  become: true
+  apt:
+    update_cache: yes
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - ripgrep
+  tags:
+    - neovim

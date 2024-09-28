@@ -1,0 +1,30 @@
+- name: install zsh
+  become: true
+  apt:
+    update_cache: yes
+    name: zsh
+    state: present
+  tags:
+    - zsh
+
+- name: make zsh the default shell
+  become: true
+  user:
+    name: "{{ user }}"
+    shell: "/usr/bin/zsh"
+  tags:
+    - zsh
+
+- name: get ohmyzsh
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/install_ohmyzsh.sh
+  tags:
+    - zsh
+
+- name: install ohmyzsh
+  command: sh /tmp/install_ohmyzsh.sh --unattended
+  register: ohmyzsh_result
+  failed_when: "'FAILED' in ohmyzsh_result.stderr"
+  tags:
+    - zsh
