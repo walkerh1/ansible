@@ -3,7 +3,7 @@
     home: "{{ lookup('env', 'HOME') }}"
     source_key: "./ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
-    user: "hugo"
+    user: "{{ lookup('env', 'USER') }}"
     email: "hugowalkersmith@gmail.com"
   tasks:
     - import_tasks: tasks/ssh.yml
@@ -11,5 +11,6 @@
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/neovim.yml
     - import_tasks: tasks/kitty.yml
+    - import_tasks: tasks/fonts.yml
     - import_tasks: tasks/dotfiles.yml
 
