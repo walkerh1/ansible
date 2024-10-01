@@ -1,4 +1,5 @@
 - name: remove old version of neovim
+  become: true
   file:
     path: "{{ home }}/neovim"
     state: absent
