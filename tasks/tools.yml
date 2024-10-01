@@ -1,0 +1,11 @@
+- name: install cli tools
+  apt:
+    update_cache: yes
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - ripgrep
+      - fzf
+  tags:
+    - tools
