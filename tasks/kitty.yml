@@ -11,3 +11,15 @@
   failed_when: "'FAILED' in kitty_result.stderr"
   tags:
     - kitty
+
+- name: ensure .local/bin directory exists
+  file:
+    path: "{{ home }}/.local/bin"
+    state: directory
+  tags:
+    - kitty
+
+- name: make kitty binaries visible to system
+  command: "ln -sf {{ home }}/.local/kitty.app/bin/kitty {{ home }}/.local/kitty.app/bin/kitten {{ home }}/.local/bin"
+  tags:
+    - kitty

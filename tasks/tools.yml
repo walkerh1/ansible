@@ -8,5 +8,6 @@
     packages:
       - ripgrep
       - fzf
+      - tree
   tags:
     - tools
