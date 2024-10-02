@@ -1,9 +1,9 @@
 - name: install cli tools
   become: true
-  apt:
+  dnf:
     update_cache: yes
     name: "{{ packages }}"
-    state: present
+    state: latest
   vars:
     packages:
       - ripgrep

@@ -1,8 +1,9 @@
 - name: install stow
   become: true
-  apt:
+  dnf:
     update_cache: true
     name: stow
+    state: latest
   tags:
     - dotfiles
 

@@ -17,18 +17,20 @@
 
 - name: install neovim build deps
   become: true
-  apt:
+  dnf:
     update_cache: yes
     name: "{{ packages }}"
-    state: present
+    state: latest
   vars:
     packages:
       - ninja-build
       - gettext
       - cmake
+      - gcc
+      - make
       - unzip
       - curl
-      - build-essential
+      - glibc-gconv-extra
   tags:
     - neovim
 
@@ -42,10 +44,10 @@
 
 - name: install neovim peer deps
   become: true
-  apt:
+  dnf:
     update_cache: yes
     name: "{{ packages }}"
-    state: present
+    state: latest
   vars:
     packages:
       - ripgrep

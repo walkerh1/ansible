@@ -1,9 +1,9 @@
 - name: install zsh
   become: true
-  apt:
+  dnf:
     update_cache: yes
     name: zsh
-    state: present
+    state: latest
   tags:
     - zsh
 
