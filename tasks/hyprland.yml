@@ -1,0 +1,25 @@
+- name: install hyprland
+  become: true
+  dnf:
+    update_cache: yes
+    name: hyprland
+    state: latest
+  tags:
+    - hyprland
+
+- name: install hyprland related programs
+  become: true
+  dnf:
+    update_cache: yes
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - wofi
+      - waybar
+      - dolphin
+      - pavucontrol
+      - hyprlock
+  tags:
+    - hyprland
+
