@@ -1,4 +1,4 @@
-- name: install cli tools
+- name: install tools
   become: true
   dnf:
     update_cache: yes
@@ -9,5 +9,7 @@
       - ripgrep
       - fzf
       - tree
+      - bat
+      - tmux
   tags:
     - tools
