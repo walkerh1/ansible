@@ -1,0 +1,6 @@
+- name: install obsidian
+  community.general.flatpak:
+    name: md.obsidian.Obsidian
+    state: latest
+  tags:
+    - obsidian

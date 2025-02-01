@@ -1,8 +1,10 @@
 - hosts: localhost
   vars:
     home: "{{ lookup('env', 'HOME') }}"
-    source_key: "./ssh/id_ed25519"
-    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    ssh_source_key: "./secrets/id_ed25519"
+    ssh_dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    aws_source_key: "./secrets/aws_credentials"
+    aws_dest_key: "{{ lookup('env', 'HOME') }}/.aws/credentials"
     user: "{{ lookup('env', 'USER') }}"
     email: "hugowalkersmith@gmail.com"
   tasks:
@@ -12,6 +14,8 @@
     - import_tasks: tasks/neovim.yml
     - import_tasks: tasks/kitty.yml
     - import_tasks: tasks/fonts.yml
-    - import_tasks: tasks/hyprland.yml
+    # - import_tasks: tasks/hyprland.yml
     - import_tasks: tasks/dotfiles.yml
-
+    - import_tasks: tasks/aws.yml
+    - import_tasks: tasks/docker.yml
+    - import_tasks: tasks/obsidian.yml

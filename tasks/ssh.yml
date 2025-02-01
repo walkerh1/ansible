@@ -1,6 +1,6 @@
 - name: ensure .ssh directory exists
   file:
-    dest: "{{ dest_key | dirname }}"
+    dest: "{{ ssh_dest_key | dirname }}"
     mode: 0700
     state: directory
   tags:
@@ -8,16 +8,16 @@
 
 - name: install ssh private key
   copy:
-    src: "{{ source_key }}"
-    dest: "{{ dest_key }}"
+    src: "{{ ssh_source_key }}"
+    dest: "{{ ssh_dest_key }}"
     mode: 0600
   tags:
     - ssh
 
 - name: install ssh public key
   copy:
-    src: "{{ source_key }}.pub"
-    dest: "{{ dest_key }}.pub"
+    src: "{{ ssh_source_key }}.pub"
+    dest: "{{ ssh_dest_key }}.pub"
     mode: 0644
   tags:
     - ssh
