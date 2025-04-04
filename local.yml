@@ -12,10 +12,9 @@
     - import_tasks: tasks/tools.yml
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/neovim.yml
-    - import_tasks: tasks/kitty.yml
     - import_tasks: tasks/fonts.yml
-    # - import_tasks: tasks/hyprland.yml
     - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/aws.yml
     - import_tasks: tasks/docker.yml
     - import_tasks: tasks/obsidian.yml
+    - import_tasks: tasks/ghostty.yml

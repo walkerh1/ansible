@@ -1,0 +1,15 @@
+- name: copr enable pgdev/ghostty
+  become: true
+  shell:
+    cmd: dnf -y copr enable pgdev/ghostty
+  tags:
+    - ghostty
+
+- name: install ghostty
+  become: true
+  dnf:
+    update_cache: yes
+    name: ghostty
+    state: latest
+  tags:
+    - ghostty
