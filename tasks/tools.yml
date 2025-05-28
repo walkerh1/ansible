@@ -1,12 +1,3 @@
-- name: install dnf plugin manager
-  become: true
-  dnf:
-    update_cache: yes
-    name: dnf-plugins-core
-    state: latest
-  tags:
-    - tools
-
 - name: install tools
   become: true
   dnf:
@@ -15,6 +6,7 @@
     state: latest
   vars:
     packages:
+      - dnf-plugins-core
       - ripgrep
       - fzf
       - tree

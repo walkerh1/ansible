@@ -4,7 +4,7 @@ Ansible playbook for setting up a new machine.
 ## Instructions
 `sudo bootstrap.sh` will do everything in one command.
 Or if I want to do it one step at a time:
-1. `sudo dnf install -y curl git software-properties-common build-essential ansible`
+1. `sudo dnf install -y curl git ansible`
 2. `git clone https://github.com/walkerh1/ansible.git`
 3. `ansible-playbook local.yml --ask-become-pass --ask-vault-pass`
 
