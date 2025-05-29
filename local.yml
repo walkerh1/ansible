@@ -9,6 +9,7 @@
     email: "hugowalkersmith@gmail.com"
   tasks:
     - import_tasks: tasks/ssh.yml
+    - import_tasks: tasks/gnome.yml
     - import_tasks: tasks/tools.yml
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/neovim.yml
