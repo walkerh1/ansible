@@ -8,8 +8,10 @@
     packages:
       - bat
       - dnf-plugins-core
+      - fd-find
       - fzf
       - golang
+      - jq
       - ripgrep
       - tmux
       - tree
