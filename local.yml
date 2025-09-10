@@ -3,18 +3,12 @@
     home: "{{ lookup('env', 'HOME') }}"
     ssh_source_key: "./secrets/id_ed25519"
     ssh_dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
-    aws_source_key: "./secrets/aws_credentials"
-    aws_dest_key: "{{ lookup('env', 'HOME') }}/.aws/credentials"
     user: "{{ lookup('env', 'USER') }}"
     email: "hugowalkersmith@gmail.com"
   tasks:
     - import_tasks: tasks/ssh.yml
-    - import_tasks: tasks/gnome.yml
     - import_tasks: tasks/tools.yml
-    - import_tasks: tasks/zsh.yml
-    - import_tasks: tasks/neovim.yml
+    - import_tasks: tasks/apps.yml
+    - import_tasks: tasks/ohmyzsh.yml
     - import_tasks: tasks/fonts.yml
     - import_tasks: tasks/dotfiles.yml
-    - import_tasks: tasks/aws.yml
-    - import_tasks: tasks/obsidian.yml
-    - import_tasks: tasks/ghostty.yml

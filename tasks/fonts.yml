@@ -14,7 +14,7 @@
 
 - name: download and unarchive JetBrainsMono fonts
   unarchive:
-    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.tar.xz
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.tar.xz
     dest: "{{ home }}/.local/share/fonts/JetBrainsMono"
     remote_src: yes
   tags:

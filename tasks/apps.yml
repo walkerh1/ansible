@@ -1,0 +1,15 @@
+- name: install apps
+  community.general.homebrew_cask:
+    name: "{{ applications }}"
+    state: present
+    update_homebrew: true
+  vars:
+    applications:
+      - firefox
+      - ghostty
+      - obsidian
+      - rectangle
+      - spotify
+      - syncthing
+  tags:
+    - apps

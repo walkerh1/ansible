@@ -1,9 +1,8 @@
 - name: install stow
-  become: true
-  dnf:
-    update_cache: true
+  community.general.homebrew:
     name: stow
     state: latest
+    update_homebrew: true
   tags:
     - dotfiles
 

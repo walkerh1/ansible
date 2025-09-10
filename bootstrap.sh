@@ -1,7 +1,7 @@
 #!/bin/bash
 
-## Install ansible and peer dependencies
-dnf install -y git ansible
+## Install homebrew
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-## Pulls ansible repo and runs ansible-playbook on local.yml
-ansible-pull -U https://github.com/walkerh1/ansible.git --ask-vault-pass --ask-become-pass
+## Use brew to install git and ansible
+brew install git ansible
