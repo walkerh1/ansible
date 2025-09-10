@@ -1,4 +1,5 @@
 - name: install stow
+  become: true
   community.general.homebrew:
     name: stow
     state: latest
