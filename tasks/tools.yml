@@ -1,5 +1,4 @@
 - name: install tools
-  become: true
   community.general.homebrew:
     name: "{{ packages }}"
     state: latest

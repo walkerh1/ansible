@@ -1,5 +1,4 @@
 - name: install apps
-  become: true
   community.general.homebrew_cask:
     name: "{{ applications }}"
     state: present
