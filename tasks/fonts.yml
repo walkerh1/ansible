@@ -1,21 +1,8 @@
-- name: remove JetBrainsMono fonts directory
-  file:
-    path: "{{ home }}/.local/share/fonts/JetBrainsMono"
-    state: absent
+- name: install jetbrains mono nerdfont
+  community.general.homebrew_cask:
+    name: font-jetbrains-mono-nerd-font
+    state: present
+    update_homebrew: true
   tags:
     - fonts
 
-- name: create JetBrainsMono fonts directory
-  file:
-    path: "{{ home }}/.local/share/fonts/JetBrainsMono"
-    state: directory
-  tags:
-    - fonts
-
-- name: download and unarchive JetBrainsMono fonts
-  unarchive:
-    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.tar.xz
-    dest: "{{ home }}/.local/share/fonts/JetBrainsMono"
-    remote_src: yes
-  tags:
-    - fonts
