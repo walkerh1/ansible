@@ -10,8 +10,12 @@
   command:
     cmd: "{{ home }}/install_ohmyzsh.sh"
     chdir: "{{ home }}"
+  tags:
+    - ohmyzsh
 
 - name: remove ohmyzsh install script
   file:
     path: "{{ home }}/install_ohmyzsh.sh"
     state: absent
+  tags:
+    - ohmyzsh
