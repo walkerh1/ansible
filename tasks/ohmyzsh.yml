@@ -1,5 +1,17 @@
-- name: install ohmyzsh
-  command:
-    cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+- name: download ohmyzsh install script
+  get_url:
+    url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+    dest: "{{ home }}/install_ohmyzsh.sh"
+    mode: 0755
   tags:
     - ohmyzsh
+
+- name: run ohmyzsh script
+  command:
+    cmd: "{{ home }}/install_ohmyzsh.sh"
+    chdir: "{{ home }}"
+
+- name: remove ohmyzsh install script
+  file:
+    path: "{{ home }}/install_ohmyzsh.sh"
+    state: absent
