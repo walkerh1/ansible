@@ -17,6 +17,12 @@
   tags:
     - gnome
 
+- name: Disable touchpad tap-on-click
+  shell: |
+    gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click false
+  tags:
+    - gnome
+
 - name: Disable switch-to-application keybindings
   shell: |
     gsettings set org.gnome.shell.keybindings switch-to-application-1 "[]"
