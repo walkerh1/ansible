@@ -6,7 +6,6 @@
     aws_source_key: "./secrets/aws_credentials"
     aws_dest_key: "{{ lookup('env', 'HOME') }}/.aws/credentials"
     user: "{{ lookup('env', 'USER') }}"
-    email: "hugowalkersmith@gmail.com"
   tasks:
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/gnome.yml
