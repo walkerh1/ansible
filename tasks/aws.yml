@@ -1,0 +1,14 @@
+- name: download aws cli
+  get_url:
+    url: https://awscli.amazonaws.com/AWSCLIV2.pkg
+    dest: /tmp/AWSCLIV2.pkg
+  tags:
+    - aws
+
+- name: install aws cli
+  become: true
+  command:
+    cmd: installer -pkg AWSCLIV2.pkg -target /
+    chdir: /tmp
+  tags:
+    - aws

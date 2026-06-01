@@ -8,8 +8,10 @@
       - firefox
       - ghostty
       - obsidian
+      - podman-desktop
       - rectangle
       - spotify
       - syncthing
+      - zed
   tags:
     - apps
