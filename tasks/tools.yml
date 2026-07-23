@@ -8,14 +8,20 @@
       - bat
       - fd
       - ffmpeg
+      - fish
       - fnm
       - fzf
-      - golang
+      - go
       - hey
       - jq
+      - lua-language-server
       - neovim
       - ripgrep
       - tmux
       - tree
+      - tree-sitter-cli
+      - typescript
+      - typescript-language-server
+      - vscode-langservers-extracted
   tags:
     - tools
