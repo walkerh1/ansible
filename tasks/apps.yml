@@ -7,11 +7,13 @@
     applications:
       - firefox
       - ghostty
+      - google-chrome
+      - nordvpn
       - obsidian
       - podman-desktop
       - rectangle
       - spotify
       - syncthing
-      - zed
+      - vlc
   tags:
     - apps

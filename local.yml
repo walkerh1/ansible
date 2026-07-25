@@ -8,7 +8,4 @@
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/tools.yml
     - import_tasks: tasks/apps.yml
-    - import_tasks: tasks/ohmyzsh.yml
-    - import_tasks: tasks/fonts.yml
     - import_tasks: tasks/dotfiles.yml
-    - import_tasks: tasks/aws.yml

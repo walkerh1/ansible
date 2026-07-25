@@ -1,27 +1,28 @@
 - name: install tools
   community.general.homebrew:
     name: "{{ packages }}"
-    state: latest
+    state: present
     update_homebrew: true
   vars:
     packages:
       - bat
       - fd
       - ffmpeg
-      - fish
-      - fnm
       - fzf
+      - fzf-tab
       - go
       - hey
       - jq
       - lua-language-server
       - neovim
       - ripgrep
+      - stow
       - tmux
       - tree
       - tree-sitter-cli
       - typescript
       - typescript-language-server
       - vscode-langservers-extracted
+      - zsh-completions
   tags:
     - tools
