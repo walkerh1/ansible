@@ -1,3 +1,10 @@
+- name: remove group/other write permission from /opt/homebrew/share
+  file:
+    path: /opt/homebrew/share
+    mode: "go-w"
+  tags:
+    - tools
+
 - name: install tools
   community.general.homebrew:
     name: "{{ packages }}"
@@ -6,6 +13,7 @@
   vars:
     packages:
       - bat
+      - bash-language-server
       - fd
       - ffmpeg
       - fzf
