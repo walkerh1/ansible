@@ -12,8 +12,8 @@
     update_homebrew: true
   vars:
     packages:
+      - ansible
       - bat
-      - bash-language-server
       - fd
       - ffmpeg
       - fzf
@@ -23,14 +23,40 @@
       - jq
       - lua-language-server
       - neovim
+      - node
       - ripgrep
       - stow
+      - stylua
       - tmux
       - tree
       - tree-sitter-cli
-      - typescript
-      - typescript-language-server
-      - vscode-langservers-extracted
       - zsh-completions
   tags:
     - tools
+    - brew
+
+- name: install npm tools
+  community.general.npm:
+    name: "{{ item.name }}@{{ item.version }}"
+    global: true
+    state: present
+  loop:
+    - { name: "typescript", version: "~6.0.3" } # pin to minor version
+    - { name: "typescript-language-server", version: "~5.3.0" } # pin to minor version
+    - { name: "vscode-langservers-extracted", version: "~4.10.0" } # pin to minor version
+    - { name: "@fsouza/prettierd", version: "^0.29.0" } # pin to major version
+  tags:
+    - tools
+    - npm
+
+- name: install go tools
+  community.general.golang_package:
+    name: "{{ item.name }}@{{ item.version }}"
+    state: present
+  loop:
+    - { name: "golang.org/x/tools/gopls", version: "latest" }
+    - { name: "golang.org/x/tools/cmd/goimports", version: "latest" }
+    - { name: "github.com/go-delve/delve/cmd/dlv", version: "latest" }
+  tags:
+    - tools
+    - go
