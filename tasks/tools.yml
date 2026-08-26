@@ -30,6 +30,7 @@
       - tmux
       - tree
       - tree-sitter-cli
+      - wget
       - zsh-completions
   tags:
     - tools

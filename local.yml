@@ -3,7 +3,6 @@
     home: "{{ lookup('env', 'HOME') }}"
     ssh_source_key: "./secrets/id_ed25519"
     ssh_dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
-    user: "{{ lookup('env', 'USER') }}"
   tasks:
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/tools.yml
