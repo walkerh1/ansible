@@ -61,3 +61,10 @@
   tags:
     - tools
     - go
+
+- name: install golang-migrate for sqlite and postgres
+  command:
+    cmd: "go install -tags 'postgres sqlite' github.com/golang-migrate/migrate/v4/cmd/migrate@v4.19.0"
+  tags:
+    - tools
+    - go
